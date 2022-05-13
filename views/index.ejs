@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="google" content="notranslate">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="googlebot" content="index,follow">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://github.com/Svxy/imgs/blob/main/icon.png?raw=true">
+  <link rel="icon" sizes="192x192" href="https://github.com/Svxy/imgs/blob/main/icon192x192.png?raw=true">
+  <link rel="apple-touch-icon" href="https://github.com/Svxy/imgs/blob/main/icon192x192.png?raw=true">
+  <meta name="theme-color" content="#00360e">
+  <meta name="pinterest" content="nopin" description="Sorry, you can't save from our website!">
+  <!--Facebook Shit-->
+  <meta property="og:url" content="https://sna-url-shrinker.herokuapp.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="S&A URL Shrinker">
+  <meta property="og:image" content="https://github.com/Svxy/imgs/blob/main/icon300x300.png?raw=true">
+  <meta property="og:image:alt" content="S&A Icon/Logo">
+  <meta property="og:description" content="S&A URL Shrinker. Convenient, fast, reliable.">
+  <meta property="og:site_name" content="S&A URL Shrinker">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:author" content="TnyavnTo">
+  <!--Twitter card-->
+  <meta name="twitter:dnt" content="off">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@sna_organics">
+  <meta name="twitter:creator" content="@sna_organics">
+  <meta name="twitter:url" content="https://sna-url-shrinker.herokuapp.com/">
+  <meta name="twitter:title" content="S&A URL Shrinker">
+  <meta name="twitter:description" content="S&A URL Shrinker. Convenient, fast, reliable.">
+  <meta name="twitter:image" content="https://github.com/Svxy/imgs/blob/main/icon300x300.png?raw=true">
+  <meta name=" twitter:image:alt" content="S&A Icon/Logo">
+  <!--End Twitter card-->
+  <meta name="description" content="S&A URL Shrinker. Convenient, fast, reliable.">
+  <noscript>
+      Enable JavaSript to use this application. -S&A Organics Co.
+    </noscript>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>S&A URL Shrinker</title>
+  <style>
+    body {
+      background-color: darkgreen;
+    }
+    form {
+      max-width: 930px;
+    }
+    table {
+      background-color: rgb(0, 59, 0);
+      max-width: 930px;
+    }
+    table th {
+      color: greenyellow;
+    }
+    tbody td {
+      color: greenyellow;
+    }
+    h1 {
+      color: greenyellow;
+      text-align: center;
+    }
+    .text-center img {
+      margin-top: -6vh;
+      margin-bottom: -6vh;
+      width: 25vw;
+      height: auto;
+      object-fit: cover;
+    }
+    @media screen and (max-width: 730px) {
+      .text-center img {
+      margin-top: -4vh;
+      margin-bottom: -4vh;
+      width: 35vw;
+      height: auto;
+      object-fit: cover;
+      }
+    }
+    @media screen and (max-width: 500px) {
+      .text-center img {
+      margin-top: -2vh;
+      margin-bottom: -2vh;
+      width: 50vw;
+      height: auto;
+      object-fit: cover;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>URL Shrinker</h1>
+
+    <div class="text-center">
+      <img src="https://github.com/Svxy/imgs/blob/main/icon.png?raw=true" class="rounded" alt="Cant find image">
+    </div>
+
+    <form action="/shortUrls" method="POST" class="my-4 form-inline">
+      <label for="fullUrl" class="sr-only">Url</label>
+      <input required placeholder="Url" type="url" name="fullUrl" id="fullUrl" class="form-control col mr-2">
+      <button class="btn btn-success" type="submit">Shrink</button>
+    </form>
+    
+    <table class="table table-striped table-responsive">
+      <thead>
+        <tr>
+          <th>Full URL</th>
+          <th>Short URL</th>
+          <th>Clicks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% shortUrls.forEach(shortUrl => { %>
+          <tr>
+            <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
+            <td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+            <td><%= shortUrl.clicks %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
